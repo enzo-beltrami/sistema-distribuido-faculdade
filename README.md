@@ -2,6 +2,8 @@
 Nesse trabalho desenvolvemos um pequeno exemplo de ecommerce
 
 ## Integrantes do grupo
+Nome do grupo: Dragoes alados
+
 Enzo Beltrami - RA:1811513200  
 Luan Michel Giomo - RA: 1811514614  
 Guilherme Munhoz Lima - RA: 1811514156  
