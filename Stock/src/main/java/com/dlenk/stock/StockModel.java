@@ -3,7 +3,6 @@ package com.dlenk.stock;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
@@ -24,11 +23,7 @@ public class StockModel implements Serializable {
   @NotNull
   @NotEmpty
   private String size;
-  @NotNull
-  @NotEmpty
   private Double price;
-  @NotNull
-  @NotEmpty
   private Integer quant;
 
 
