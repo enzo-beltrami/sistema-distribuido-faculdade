@@ -11,7 +11,7 @@ class OrderController(val orderService: OrderService) {
     }
 
     @PostMapping
-    fun saveOrder(orderDTO: OrderDTO): Order {
+    fun saveOrder(@RequestBody orderDTO: OrderDTO): Order {
         return orderService.saveOrder(orderDTO.toOrder())
     }
 }

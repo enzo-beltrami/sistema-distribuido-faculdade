@@ -1,19 +1,22 @@
 package com.dlenk.checkout
 
-import com.dlenk.checkout.order.Order
 import com.dlenk.checkout.order.OrderRespository
-import org.bson.types.ObjectId
-import org.springframework.boot.ApplicationArguments
-import org.springframework.boot.ApplicationRunner
+import org.springframework.amqp.core.Queue
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Bean
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 
 @SpringBootApplication
 @EnableMongoRepositories(basePackages = ["com.dlenk"])
-class CheckoutApplication(val orderRepository: OrderRespository) : ApplicationRunner {
-    override fun run(args: ApplicationArguments?) {
-//        orderRepository.save(Order(ObjectId(), 5, "aa@gmail.com"))
+class CheckoutApplication(val orderRepository: OrderRespository) {
+    @Value("\${queue.order.name}")
+    private lateinit var orderQueue: String
+
+    @Bean
+    fun queue(): Queue {
+        return Queue(orderQueue, true)
     }
 }
 
