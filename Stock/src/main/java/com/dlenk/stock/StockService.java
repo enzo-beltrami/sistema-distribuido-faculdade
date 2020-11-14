@@ -49,15 +49,16 @@ public class StockService {
   }
 
   public void removeStock(Integer id) throws NotFoundException {
-    stockRepository.findById(id)
+    StockModel stock = stockRepository.findById(id)
         .orElseThrow(() -> new NotFoundException(
             Constants.ITEM_NOT_FIND));
-    stockRepository.delete(id);
+    stockRepository.delete(stock);
   }
+
   public StockModel buyFromStock(Integer id) throws NotFoundException {
     StockModel stockModel = stockRepository.findById(id)
-            .orElseThrow(() -> new NotFoundException(
-                    Constants.ITEM_NOT_FIND));
+        .orElseThrow(() -> new NotFoundException(
+            Constants.ITEM_NOT_FIND));
     StockUpdateDTO stockUpdateDTO = new StockUpdateDTO();
     stockUpdateDTO.setQuant(stockModel.getQuant() - 1);
     stockMapper.updateStockFromDto(stockUpdateDTO, stockModel);

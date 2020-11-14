@@ -1,9 +1,14 @@
 # Database connection username and password
 spring:
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWD:guest}
   datasource:
     url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PASS}
+    username: ${DB_USER:admin}
+    password: ${DB_PASS:admin}
     driver-class-name: org.postgresql.Driver
   jpa:
     properties:
@@ -20,4 +25,7 @@ spring:
     open-in-view: false
 server:
   port: 9000
-  context-path: /dlenk
+
+queue:
+  order:
+    name: ${ORDER_QUEUE:orders}

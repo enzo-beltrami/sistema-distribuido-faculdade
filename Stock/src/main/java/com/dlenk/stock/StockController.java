@@ -3,7 +3,6 @@ package com.dlenk.stock;
 import com.dlenk.stock.DTOs.StockUpdateDTO;
 import com.dlenk.error.NotFoundException;
 import java.util.List;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("stock")
+@RequestMapping("/stock")
 public class StockController {
 
 
@@ -30,7 +29,7 @@ public class StockController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<StockModel> getStockById(@Valid @PathVariable Integer id)
+  public ResponseEntity<StockModel> getStockById(@PathVariable Integer id)
       throws NotFoundException {
     return ResponseEntity.ok(stockService.getStockById(id));
   }
@@ -41,7 +40,7 @@ public class StockController {
   }
 
   @PostMapping
-  public ResponseEntity<StockModel> postStock(@Valid @RequestBody StockModel stockModel)
+  public ResponseEntity<StockModel> postStock(@RequestBody StockModel stockModel)
       throws Exception {
     return ResponseEntity
         .status(HttpStatus.CREATED)
@@ -50,13 +49,13 @@ public class StockController {
 
   @PutMapping("/{id}")
   public ResponseEntity<StockModel> putStock(@PathVariable Integer id,
-                                            @Valid @RequestBody StockModel stockModel) throws NotFoundException {
+                                            @RequestBody StockModel stockModel) throws NotFoundException {
     return ResponseEntity.ok(stockService.putStock(id, stockModel));
   }
 
   @PatchMapping("/{id}")
   public ResponseEntity<StockModel> patchStock(@PathVariable Integer id,
-                                              @Valid @RequestBody StockUpdateDTO stockUpdateDTO) throws NotFoundException {
+                                              @RequestBody StockUpdateDTO stockUpdateDTO) throws NotFoundException {
     return ResponseEntity.ok(stockService.patchStock(id, stockUpdateDTO));
   }
 

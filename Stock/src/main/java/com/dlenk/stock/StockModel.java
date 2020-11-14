@@ -2,8 +2,6 @@ package com.dlenk.stock;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -17,11 +15,7 @@ public class StockModel implements Serializable {
   @GeneratedValue(strategy = GenerationType.SEQUENCE,
           generator="stock_id_seq")
   private Integer id;
-  @NotNull
-  @NotEmpty
   private String name;
-  @NotNull
-  @NotEmpty
   private String size;
   private Double price;
   private Integer quant;

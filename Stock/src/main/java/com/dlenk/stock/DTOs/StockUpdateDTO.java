@@ -1,21 +1,10 @@
 package com.dlenk.stock.DTOs;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.validation.constraints.NotNull;
 
 public class StockUpdateDTO {
-  @NotNull
-  @NotEmpty
   private String name;
-  @NotNull
-  @NotEmpty
   private String size;
-  @NotNull
-  @NotEmpty
   private Double price;
-  @NotNull
-  @NotEmpty
   private Integer quant;
 
   public StockUpdateDTO(String name, String size, Double price, Integer quant) {
