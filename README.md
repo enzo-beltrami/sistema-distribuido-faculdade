@@ -14,3 +14,6 @@ O sistema e composto por 2 componentes: o projeto Stock responsavel pelo gerenci
 e o projeto Checkout responsavel por efetuar a compra do cliente.
 
 ![Desenho Arquitetural](./docs/architecture.png)
+
+## Video Demonstração youtube
+https://youtu.be/PhYTZCtEW6o
